@@ -1,0 +1,7 @@
+Kevin Reed 015345497
+
+    Sockets, threading, two computers and forgetting the client-server model. This project has 3 separate threads, one for the "communication listener" which 
+listens to devices that want to join the file sharing network, one for sending/ receiving and modifying files, and one for the client logic which compares file system updates (the client logic gets locked when file system modifications are happening on the file modiication thread).
+File systems are compared by generating the dir.json which has the relative paths as the key, and the file names along with their content hash values in an array (this array of
+file metadata is the value for the corresponding relative path key). The differences found in the dir.json will be used to remove files/ subdirectories and request file
+data to be sent for files that are either not present or have been modified on the other device.
