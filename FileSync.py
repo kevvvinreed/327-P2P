@@ -9,7 +9,6 @@ import hashlib
 import shutil
 import sys
 
-
 class Node():
 
     def __init__(self):
@@ -44,8 +43,6 @@ class Node():
             with open(os.getcwd() + '\\metadata.txt', 'r') as f:
                 self.meta_time = int(f.read())
             
-        # dir_json_compare((os.getcwd() + '\\dir.json', os.getcwd() + '\\metadata.txt'), (os.getcwd() + '\\dir-new.json', os.getcwd() + '\\metadata-new.txt'))
-
         """
             Steps to be performed on start up
             1. self.connect_to_network() in order to update self.IP_CHAIN
@@ -53,7 +50,6 @@ class Node():
             3. Run self.generate_dir_json() on a thread, if generate_dir_json() returns True, an update has taken place.
                This update should broadcast the time of update (metadata.txt) and update details (dir.json) to all IPs
                on the self.IP_CHAIN.
-            # 4. Run self.file_listener() on a thread to serve files to any clients on the network that request them
         """
         # Ping all local IPs 3 times in order to 
         self.connect_to_network(1)
